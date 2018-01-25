@@ -15,7 +15,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        let baseURL = Bundle.main.apiBaseURL
+        print(baseURL)
         return true
     }
 
@@ -44,3 +45,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+extension Bundle {
+    var apiBaseURL: String {
+        return object(forInfoDictionaryKey: "baseURL") as? String ?? ""
+    }
+}
